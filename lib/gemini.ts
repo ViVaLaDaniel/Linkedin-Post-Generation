@@ -89,9 +89,9 @@ export async function generatePosts(
 ): Promise<Post[]> {
   const genAI = getGeminiClient();
   
-  // Используем gemini-2.0-flash-exp
+  // Используем стабильную модель gemini-1.5-flash
   const model = genAI.getGenerativeModel({ 
-    model: 'gemini-2.0-flash-exp',
+    model: 'gemini-1.5-flash',
     generationConfig: {
       temperature: 0.9, // Больше креативности
       topP: 0.95,
