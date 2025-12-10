@@ -1,0 +1,226 @@
+/* Tailwind CSS базовые директивы */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+  Глобальные стили для LinkedIn Post Generator
+  Цветовая схема: LinkedIn синий + белый
+*/
+
+/* Базовые стили */
+:root {
+  /* LinkedIn цвета */
+  --linkedin-primary: #0A66C2;
+  --linkedin-light: #378FE9;
+  --linkedin-dark: #004182;
+  --background: #F3F6F8;
+  --foreground: #000000;
+}
+
+/* Тёмная тема (опционально) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #1B1F23;
+    --foreground: #FFFFFF;
+  }
+}
+
+/* Базовые стили body */
+body {
+  background: linear-gradient(135deg, #F3F6F8 0%, #FFFFFF 100%);
+  color: var(--foreground);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  min-height: 100vh;
+}
+
+/* Плавные переходы для всех интерактивных элементов */
+button, a, input, textarea, select {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Стили для фокуса (accessibility) */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--linkedin-primary);
+  outline-offset: 2px;
+}
+
+/* Анимация загрузки */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.loading-shimmer {
+  background: linear-gradient(
+    90deg,
+    #E8E8E8 0%,
+    #F5F5F5 50%,
+    #E8E8E8 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Кастомный скроллбар */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F3F6F8;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C5C5C5;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0A66C2;
+}
+
+/* Утилиты для градиентного текста */
+.gradient-text {
+  background: linear-gradient(135deg, #0A66C2 0%, #378FE9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Стили для карточек постов */
+.post-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(10, 102, 194, 0.15);
+}
+
+/* Анимация появления постов */
+.post-appear {
+  animation: slideUp 0.4s ease-out forwards;
+  opacity: 0;
+}
+
+.post-appear:nth-child(1) { animation-delay: 0.1s; }
+.post-appear:nth-child(2) { animation-delay: 0.2s; }
+.post-appear:nth-child(3) { animation-delay: 0.3s; }
+.post-appear:nth-child(4) { animation-delay: 0.4s; }
+.post-appear:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Toast уведомление */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #0A66C2;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.3s ease-out;
+  z-index: 1000;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Модальное окно */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 16px;
+  max-width: 500px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: slideUp 0.3s ease-out;
+}
+
+/* Кнопка LinkedIn стиль */
+.btn-linkedin {
+  background: linear-gradient(135deg, #0A66C2 0%, #004182 100%);
+  color: white;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 24px;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-linkedin:hover {
+  background: linear-gradient(135deg, #378FE9 0%, #0A66C2 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(10, 102, 194, 0.3);
+}
+
+.btn-linkedin:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Лоадер спиннер */
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
