@@ -85,7 +85,7 @@ export default function PricingPage() {
             </ul>
 
             <a 
-              href="/linkedin/" 
+              href="/" 
               className="w-full py-4 border-2 border-gray-200 rounded-full text-center font-semibold hover:bg-gray-50 transition-colors"
             >
               Текущий план

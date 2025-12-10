@@ -1,9 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Base path для работы на поддиректории /linkedin
-  // Раскомментируй для локальной разработки без префикса
-  basePath: '/linkedin',
-  assetPrefix: '/linkedin',
+  // Base path для работы на поддиректории (Digital Ocean с nginx)
+  // Раскомментируй если деплоишь на /linkedin путь
+  // basePath: '/linkedin',
+  // assetPrefix: '/linkedin',
   
   // Добавляем trailing slash для консистентности URL
   trailingSlash: true,

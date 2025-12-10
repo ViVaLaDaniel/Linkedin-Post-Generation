@@ -34,7 +34,7 @@ export default function ProModal({ isOpen, onClose }: ProModalProps) {
     setValidationResult(null);
 
     try {
-      const response = await fetch('/linkedin/api/validate-code/', {
+      const response = await fetch('/api/validate-code/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

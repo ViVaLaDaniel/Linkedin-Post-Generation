@@ -36,7 +36,7 @@ export default function RootLayout({
           <nav className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
             {/* Логотип */}
             <Link 
-              href="/linkedin/" 
+              href="/" 
               className="flex items-center gap-2 text-xl font-bold"
             >
               <div className="w-10 h-10 bg-gradient-to-br from-linkedin-primary to-linkedin-dark rounded-lg flex items-center justify-center">
@@ -48,19 +48,19 @@ export default function RootLayout({
             {/* Навигационные ссылки */}
             <div className="flex items-center gap-6">
               <Link 
-                href="/linkedin/" 
+                href="/" 
                 className="text-gray-600 hover:text-linkedin-primary font-medium transition-colors"
               >
                 Генератор
               </Link>
               <Link 
-                href="/linkedin/pricing/" 
+                href="/pricing/" 
                 className="text-gray-600 hover:text-linkedin-primary font-medium transition-colors"
               >
                 Тарифы
               </Link>
               <Link 
-                href="/linkedin/pricing/" 
+                href="/pricing/" 
                 className="btn-linkedin text-sm py-2 px-4"
               >
                 🚀 PRO

@@ -66,7 +66,7 @@ export default function Generator() {
         : null;
 
       // Запрос к API
-      const response = await fetch('/linkedin/api/generate/', {
+      const response = await fetch('/api/generate/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -200,7 +200,7 @@ export default function Generator() {
             <p className="text-red-700 font-medium">{error}</p>
             {remaining === 0 && (
               <a 
-                href="/linkedin/pricing/" 
+                href="/pricing/" 
                 className="inline-block mt-2 text-linkedin-primary hover:underline font-medium"
               >
                 Получить PRO за €19/мес →
